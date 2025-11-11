@@ -12,7 +12,7 @@
     "dev": "remix dev",
     "dev:cf": "cross-env CF_PAGES=1 remix dev --manual -c \"yarn run dev:wrangler\"",
     "start:cf": "cross-env NODE_ENV=production yarn run dev:wrangler",
-    "start": "remix-serve build",
+    "start": "node node_modules/@remix-run/serve/dist/cli.js build",
     "generate": "graphql-codegen --config codegen.yml",
     "prepare": "husky install"
   },
