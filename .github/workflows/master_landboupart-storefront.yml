@@ -61,6 +61,7 @@ jobs:
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'landboupart-storefront-adh3acecbfangtet'
+          app-name: 'landboupart-storefront'
           slot-name: 'Production'
           package: .
+
