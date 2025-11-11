@@ -57,23 +57,21 @@ jobs:
            node_modules
            public
 
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v4
-        with:
+    - name: Download artifact from build job
+      uses: actions/download-artifact@v4
+      with:
           name: landboupart-storefront
 
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
+    - name: Login to Azure
+      uses: azure/login@v2
+      with:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_12E6B26FD6504E6BA4882C14E15E5841 }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_691995E088A749C2BA7A4B8B6B3C9C80 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_3ACBBE7366594C6DB0E14CDFED3DC419 }}
 
-      - name: Deploy to Azure Web App
-        uses: azure/webapps-deploy@v3
-        with:
+    - name: Deploy to Azure Web App
+      uses: azure/webapps-deploy@v3
+      with:
           app-name: 'landboupart-storefront'
           slot-name: 'Production'
           package: .
-
-
