@@ -46,6 +46,17 @@ jobs:
       contents: read
 
     steps:
+    - name: Upload artifact for deployment job
+      uses: actions/upload-artifact@v4
+      with:
+         name: landboupart-storefront
+         path: |
+           package.json
+           yarn.lock
+           build
+           node_modules
+           public
+
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
@@ -64,4 +75,5 @@ jobs:
           app-name: 'landboupart-storefront'
           slot-name: 'Production'
           package: .
+
 
